@@ -23,6 +23,7 @@ html, body {
   width: calc(50% - 2px);
   height: 100%;
   padding: 0;
+  overflow: auto;
 }
 
 #textile-edit {
@@ -34,7 +35,6 @@ html, body {
 
 #preview {
   font-size: 12px;
-  overflow: auto;
   padding: 0 16px;
 }
 #preview pre {
