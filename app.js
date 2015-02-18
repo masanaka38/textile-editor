@@ -1,10 +1,6 @@
 $(document).ready(function() {
 
   var timer = null;
-  // $('#textile-edit').keydown(function() {
-  //   if(timer) clearTimeout(timer);
-  //   timer = setTimeout(preview, 500);
-  // });
   var editor = ace.edit('textile-edit');
   editor.getSession().on('change', function(e) {
     if(timer) clearTimeout(timer);
@@ -13,9 +9,12 @@ $(document).ready(function() {
 
   function preview () {
     $('#preview').html(textile(editor.getValue()));
-
-//    $('#preview').html(textile($('#textile-edit').val()));
+    localStorage.setItem('data', editor.getValue());
   }
+
+  // 復元
+  editor.setValue(localStorage.getItem('data'));
+  $('#preview').html(textile(editor.getValue()));
 });
 
 
